@@ -15,9 +15,24 @@ before_install:
   - chmod +x ./kubectl
   - sudo mv ./kubectl /usr/local/bin/kubectl
   - sudo mkdir ~/.kube
+  - cp udacity-c3-deployment/k8s/config ${HOME}/.kube/config
 
   
 
 install:
   - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel 
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml push
+  - kubectl apply -f udacity-c3-deployment/k8s/aws-secret.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/env-secret.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/env-configmap.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/backend-feed-deployment.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/backend-user-deployment.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/frontend-deployment.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-deployment.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/backend-feed-service.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/backend-user-service.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/frontend-service.yaml
+  - kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-service.yaml
+  
   
