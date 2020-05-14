@@ -15,7 +15,7 @@ before_install:
   - chmod +x ./kubectl
   - sudo mv ./kubectl /usr/local/bin/kubectl
   - sudo mkdir ~/.kube
-  - cp udacity-c3-deployment/k8s/aws-secret.yaml ${HOME}/.kube/config
+  
 
   
 
