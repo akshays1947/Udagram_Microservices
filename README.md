@@ -68,7 +68,6 @@ Open new terminal into the project directory and run:
 9. Alternatively, you may use detached mode to run containers in the background: ` docker-compose up -d`
 10. To stop the container: `docker-compose stop`
 11. To remove (and stop) the container `docker-compose down`
-![Alt text](screen/docker.png?raw=true "Image 1")
 ***
 
 ### Setup Kubernetes environment:
@@ -103,7 +102,6 @@ Open new terminal into the project directory and run:
 2. `kubectl get pod --all-namespaces`
 3. `kubectl get svc`
 
-![Alt text](screen/kubectl-get-nodes-post-rolling-update.png.png?raw=true "Image 2")
 
 
 ### Resources for setting up and using KOPS.
@@ -149,4 +147,4 @@ version: 2
 ### A/B deployment of the application
 
 The folder "udacity-c3-restapi-ab" contains the same code as of "udacity-c3-restapi" but is named differently to show it is a different version of "udacity-c3-restapi". This has been done to have two docker containers with different codes to show two versions - 'A' and 'B' of the same application can run simultaneously and serve the traffic.
-![Alt text](screen/Application_screenshot.png.png?raw=true "Image 3")
+
