@@ -32,7 +32,4 @@ install:
   - kubectl apply -f udacity-c3-deployment/k8s/backend-user-service.yaml
   - kubectl apply -f udacity-c3-deployment/k8s/frontend-service.yaml
   - kubectl apply -f udacity-c3-deployment/k8s/reverseproxy-service.yaml
-  
-
-
 
