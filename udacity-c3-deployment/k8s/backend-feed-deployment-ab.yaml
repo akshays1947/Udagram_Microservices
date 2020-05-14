@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: backend-feed
-    version: v2
-  name: backend-feed
+    service: backend-feed-ab
+  name: backend-feed-ab
 spec:
   replicas: 3
   strategy:
@@ -14,16 +13,15 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      service: backend-feed
+      service: backend-feed-ab
   template:
     metadata:
       labels:
-        service: backend-feed
-        version: v2
+        service: backend-feed-ab
     spec:
       containers:
-      - image: iamakshay24/udacity-restapi-feed
-        name: backend-feed
+      - image: iamakshay24/udacity-restapi-feed-ab
+        name: backend-feed-ab
         imagePullPolicy: Always  
         resources:
           requests:
