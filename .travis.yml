@@ -15,6 +15,7 @@ before_install:
   - chmod +x ./kubectl
   - sudo mv ./kubectl /usr/local/bin/kubectl
   - sudo mkdir ~/.kube
+  - sudo mv config ~/.kube/config
   
 
 install:
